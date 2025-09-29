@@ -7,11 +7,10 @@ pipeline {
     string(name: 'tag_imagen', defaultValue: 'latest', description: 'etiqueta de la imagen')
     string(name: 'puerto_imagen', defaultValue: '81', description: 'puerto a publicar')
  }
-}
- environment {
-    name_final = "${name_container}${tag_imagen}${puerto_imagen}"
- }
- stages {
+  environment {
+     name_final = "${name_container}${tag_imagen}${puerto_imagen}"
+   }
+   stages {
        stage('stop/rm') {
          when {
              expression {
@@ -46,3 +45,5 @@ pipeline {
          }
        }
  }
+}
+ 
